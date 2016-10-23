@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ActiveUser from './ActiveUser';
 
 export default class UserData extends Component {
   getImage(animal) {

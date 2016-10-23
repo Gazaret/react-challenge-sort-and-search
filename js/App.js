@@ -28,11 +28,15 @@ export default class App extends Component {
     this.setState({active: id});
   }
 
+  setSorted(users) {
+    this.setState({users});
+  }
+
   render() {
     return (
       <div className="container-fluid app">
         <SearchBar />
-        <Toolbar />
+        <Toolbar users={ this.state.users } sort={ this.setSorted.bind(this) }/>
         <div className="app__info">
           <ActiveUser users={ this.state.users } active={ this.state.active } />
           <UserList list={ this.state.users } setActive={ this.setActive.bind(this) } />
