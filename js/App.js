@@ -9,7 +9,8 @@ export default class App extends Component {
     super(props);
     this.getUsers();
     this.state = {
-      users: []
+      users: [],
+      active: 0
     };
   }
 
@@ -23,15 +24,18 @@ export default class App extends Component {
       });
   }
 
-  render() {
+  setActive(id) {
+    this.setState({active: id});
+  }
 
+  render() {
     return (
       <div className="container-fluid app">
         <SearchBar />
         <Toolbar />
         <div className="app__info">
-          <ActiveUser />
-          <UserList list={this.state.users} />
+          <ActiveUser users={ this.state.users } active={ this.state.active } />
+          <UserList list={ this.state.users } setActive={ this.setActive.bind(this) } />
         </div>
       </div>
     );

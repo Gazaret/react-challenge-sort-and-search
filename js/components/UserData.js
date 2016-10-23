@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ActiveUser from './ActiveUser';
 
 export default class UserData extends Component {
   getImage(animal) {
@@ -20,7 +21,7 @@ export default class UserData extends Component {
 
   render() {
     return (
-      <tr>
+      <tr className="userData" onClick={ this.props.onClick }>
         <td>
           <img className="userData__avatar" src={ this.getImage(this.props.image) } alt=""/>
         </td>
